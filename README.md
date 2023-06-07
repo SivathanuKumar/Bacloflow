@@ -9,14 +9,19 @@ Table Of Contents:
 6.	Wi-Fi connectivity
 7.	Analyzing results
 8.	Troubleshooting and Contact Information.
+
 Introduction:
+
 Intrathecal baclofen therapy (IBT) is used to treat severe spasticity in patients with multiple sclerosis (MS). However, the catheter that carries medication from the implanted drug pump can fail, leading to a return of symptoms or possibly lethal baclofen withdrawal. Current methods for detecting catheter failure are time and resource intensive and come with a high degree of uncertainty. Bacloflow is an internal flow rate monitoring device that reads the flow at the beginning and end of the catheter to detect possible catheter failure. The initial prototype Bacloflow 2.0 is accurate and sensitive to small changes in flow, however, it still depends on Arduino to interface with and process relevant data for the user. Bacloflow 3.0 aims to address this issue by connecting the sensor with an external source that interfaces wirelessly with an external server that computes and displays the results remotely to the requested parties. This instruction manual guides the user in the setup process of both iteration of the device, and lists the relevant libraries required to make the device work, as well as the necessary pin diagrams, plate size description and casing structure.
 Precautions:
 The sensor currently utilizes unlaminated copper sheets that can be subject to contamination and oxidation, when exposed to air, which in turn can be harmful to the user when and if implanted and requires a similar alternative if planning to implant in a patient or run animal tests on. 
 While the sensor itself is a low power draining add-on, the Arduino and ESP8266 used as microcontrollers require a constant 5V of power to function normally. This would ideally require a 9V battery or a USB-BB cable supplying power to the Arduino and ESP8266 regularly whenever the device is running. Over long periods of time, the readings obtained on the Arduino tend to drift from the median point and thus changes need to be accounted for. If powered using a single 9V battery, it is to be noted that the power runs out of the battery every 10 hours and will be required to replace it in order for uni9nterruptedf readings when testing. It’s recommended to use a DC 5V, 2.4A 12 Watt maximum power cell, for longer periods of isolated testing.
 The current device and materials used are not suitable for implantation for animal testing and clinical trials. The current prototype acts only as proof of concept and the materials used to build it need to be substituted. This would include the copper strips as the main components of the capacitive sensor, the outer PLA casing, the aluminum shielding around the device and the plastic layer that isolates the casing from the inner sensing plates. The external wires that are connected to the copper plates also need to be accounted for. Care needs to be taken when testing in moist environments, as the device is prone to short circuiting and can cause issues. 
+
 Equipment and materials:
+
 Bacloflow 2.0:
+
 1.	Arduino Uno R3
 2.	Bacloflow 2.0 Casing, PLA based 3D print
 3.	2x Identical copper strips, 1.5 x 2.0 inch, with a 0.4-inch diameter hole punched 0.2 inches from the top.
@@ -24,16 +29,17 @@ Bacloflow 2.0:
 5.	Thin plastic sheet to isolate the metal shielding layer from the conducting layer.
 6.	0.96-inch I2C OLED display
 7.	External Power source (DC 5V, 2.1A, 12 W)
+
 Changes in equipment for Bacloflow 3.0:
+
 1.	Using a ESP8266 Wi-Fi module over the Arduino Uno
 2.	Moving from 2 analog In-Out pins to 1 analog and 1 digital pin
 3.	2x 1.5 kΩ external pullup resistors
 4.	2x thinner identical cooper strips, 1.0 x 1.5 inch
 5.	Connecting wires and power source
+
 Circuit Pinout:
-The circuit pinout for the two configurations of the device are as follows:
-Bacloflow 2.0:
-The following diagram on the right shows the pin configuration of the device. Two analog pins are used, with A0 being the charging pin for the capacitive plates and A1 being the discharging pin for the plates. A sample OLED display is added to visualize the output easier.
+Can be seen in the pdf
 
 
 
